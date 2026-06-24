@@ -85,3 +85,13 @@ npm run deploy:pages # 发布到 gh-pages（手机更新必做）
 ## 默认数据
 
 首次加载含 10 习惯、6 目标、3 任务；用户 LocalStorage 数据从 v1/v2 迁移到 v3，勿随意改 STORAGE_KEY 除非做迁移。
+
+## Cursor Automation 任务
+
+**任务名**：`人生努力可视化 · 改功能`
+
+下次要改功能时，在 Cursor **Automations** 里找到并运行该任务，直接说需求即可（例如「侧边栏宝石再大一点」）。
+
+预填配置备份：`.cursor/automation/life-effort-viz-maintain.prefill.json`
+
+新建/恢复任务：Automations → New → 触发器选手动/Webhook → 仓库 `xiaying-xia/life-effort-viz` main → 指令粘贴 prefill 里的 prompt。

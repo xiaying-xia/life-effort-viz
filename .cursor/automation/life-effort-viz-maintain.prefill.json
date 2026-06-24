@@ -1,0 +1,25 @@
+{
+  "name": "人生努力可视化 · 改功能",
+  "description": "维护 life-effort-viz PWA。下次要改功能、UI、宝石图标或部署，直接运行此任务并说明需求即可。",
+  "workflow": {
+    "triggers": [
+      {
+        "webhook": {}
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      {
+        "prompt": "你是「人生努力可视化」life-effort-viz 项目的维护 agent。\n\n## 第一步（必做）\n1. 将工作区切换到仓库根目录：~/Projects/life-effort-viz\n2. 阅读并遵循项目 skill：`.cursor/skills/life-effort-viz/SKILL.md`（细节见同目录 reference.md）\n\n## 项目速览\n- Vue 3 + Vite 8 PWA，数据在 LocalStorage `life-effort-viz-v3`\n- 线上：https://xiaying-xia.github.io/life-effort-viz/\n- GitHub：xiaying-xia/life-effort-viz\n- 开发：npm run dev（5174）\n- 手机发布：npm run deploy:pages（gh-pages）\n\n## UI 约定\n- 蓝粉紫 pastel 配色（src/style.css）\n- 朱顶红 HandDrawnIcon + 宝石 GemIcon（内联 SVG，禁止 img 外链图标）\n- 侧边栏菜单宝石一直 intense 闪烁，各色见 skill\n- 副标题：「今天也要发光啊」\n\n## 执行用户请求\n- 根据用户在本次运行中的说明修改功能/UI/部署\n- 改前先读相关 store/vue 文件，最小 diff\n- 改完 npm run build 验证\n- 除非用户明确要求，不要 git commit\n- 若需更新手机，提醒用户本机执行 npm run deploy:pages 并强制刷新 PWA\n\n## 用户本次需求\n（在运行任务时输入具体要改的内容）"
+      }
+    ],
+    "gitConfig": {
+      "repo": "xiaying-xia/life-effort-viz",
+      "branch": "main"
+    },
+    "memoryEnabled": true,
+    "agentOptions": {
+      "skipInstall": false
+    }
+  }
+}
