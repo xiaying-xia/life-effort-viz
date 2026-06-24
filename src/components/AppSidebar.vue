@@ -47,7 +47,7 @@ function go(id) {
       >
         <span class="nav-icon">{{ item.icon }}</span>
         <span class="nav-label">{{ item.label }}</span>
-        <GemIcon :color="item.gem" :size="16" :sparkle="active === item.id" />
+        <GemIcon :color="item.gem" :size="16" sparkle />
       </button>
     </nav>
 
@@ -59,7 +59,7 @@ function go(id) {
       >
         <span class="nav-icon">⚙️</span>
         <span class="nav-label">系统设置</span>
-        <GemIcon color="lavender" :size="16" :sparkle="active === 'settings'" />
+        <GemIcon color="lavender" :size="16" sparkle />
       </button>
     </div>
   </aside>
