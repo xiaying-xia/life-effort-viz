@@ -1,16 +1,16 @@
 <script setup>
 import HandDrawnIcon from './HandDrawnIcon.vue'
+import GemIcon from './GemIcon.vue'
 
 const decos = [
-  { name: 'amaryllis', style: { left: '6%', top: '10%', animationDelay: '0s', animationDuration: '6s', size: 36 } },
-  { name: 'jewelry', style: { left: '88%', top: '14%', animationDelay: '1.5s', animationDuration: '7s', size: 30 } },
-  { name: 'jewelry', style: { left: '92%', top: '52%', animationDelay: '2.2s', animationDuration: '8s', size: 28 } },
-  { name: 'amaryllis', style: { left: '4%', top: '65%', animationDelay: '0.8s', animationDuration: '7.5s', size: 30, opacity: 0.38 } },
-  { name: 'jewelry', style: { left: '72%', top: '6%', animationDelay: '3s', animationDuration: '6.5s', size: 26, opacity: 0.45 } },
-  { name: 'amaryllis', style: { left: '16%', top: '38%', animationDelay: '1.8s', animationDuration: '9s', size: 22, opacity: 0.28 } },
-  { name: 'jewelry', style: { left: '48%', top: '88%', animationDelay: '2s', animationDuration: '7s', size: 26, opacity: 0.4 } },
-  { name: 'amaryllis', style: { left: '34%', top: '18%', animationDelay: '3.5s', animationDuration: '8s', size: 22, opacity: 0.28 } },
-  { name: 'jewelry', style: { left: '58%', top: '72%', animationDelay: '1s', animationDuration: '6s', size: 32, opacity: 0.42 } },
+  { type: 'amaryllis', style: { left: '6%', top: '10%', animationDelay: '0s', animationDuration: '6s', size: 36 } },
+  { type: 'gem', color: 'blue', style: { left: '88%', top: '14%', animationDelay: '1.5s', animationDuration: '7s', size: 28 } },
+  { type: 'gem', color: 'pink', style: { left: '92%', top: '52%', animationDelay: '2.2s', animationDuration: '8s', size: 26 } },
+  { type: 'amaryllis', style: { left: '4%', top: '65%', animationDelay: '0.8s', animationDuration: '7.5s', size: 30, opacity: 0.38 } },
+  { type: 'gem', color: 'purple', style: { left: '72%', top: '6%', animationDelay: '3s', animationDuration: '6.5s', size: 24, opacity: 0.45 } },
+  { type: 'gem', color: 'gold', style: { left: '48%', top: '88%', animationDelay: '2s', animationDuration: '7s', size: 24, opacity: 0.4 } },
+  { type: 'amaryllis', style: { left: '34%', top: '18%', animationDelay: '3.5s', animationDuration: '8s', size: 22, opacity: 0.28 } },
+  { type: 'gem', color: 'cyan', style: { left: '58%', top: '72%', animationDelay: '1s', animationDuration: '6s', size: 28, opacity: 0.42 } },
 ]
 </script>
 
@@ -20,10 +20,10 @@ const decos = [
       <HandDrawnIcon name="amaryllis" :size="68" />
     </div>
     <div class="corner corner-tr">
-      <HandDrawnIcon name="jewelry" :size="52" />
+      <GemIcon color="blue" :size="48" />
     </div>
     <div class="corner corner-br">
-      <HandDrawnIcon name="jewelry" :size="48" />
+      <GemIcon color="pink" :size="44" />
     </div>
     <div
       v-for="(d, i) in decos"
@@ -37,7 +37,8 @@ const decos = [
         opacity: d.style.opacity,
       }"
     >
-      <HandDrawnIcon :name="d.name" :size="d.style.size" />
+      <HandDrawnIcon v-if="d.type === 'amaryllis'" name="amaryllis" :size="d.style.size" />
+      <GemIcon v-else :color="d.color" :size="d.style.size" />
     </div>
   </div>
 </template>

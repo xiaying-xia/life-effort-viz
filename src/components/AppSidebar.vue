@@ -1,5 +1,6 @@
 <script setup>
 import HandDrawnIcon from './HandDrawnIcon.vue'
+import GemIcon from './GemIcon.vue'
 
 defineProps({
   active: { type: String, default: 'action' },
@@ -9,12 +10,12 @@ defineProps({
 const emit = defineEmits(['navigate', 'close-mobile'])
 
 const menuItems = [
-  { id: 'growth', label: '总的成长记录', icon: '📊' },
-  { id: 'action', label: '行动中心', icon: '🎮' },
-  { id: 'goals', label: '目标', icon: '🎯' },
-  { id: 'tasks', label: '任务', icon: '📋' },
-  { id: 'habits', label: '习惯', icon: '✅' },
-  { id: 'rewards', label: '奖励', icon: '🎁' },
+  { id: 'growth', label: '总的成长记录', icon: '📊', gem: 'blue' },
+  { id: 'action', label: '行动中心', icon: '🎮', gem: 'pink' },
+  { id: 'goals', label: '目标', icon: '🎯', gem: 'purple' },
+  { id: 'tasks', label: '任务', icon: '📋', gem: 'cyan' },
+  { id: 'habits', label: '习惯', icon: '✅', gem: 'green' },
+  { id: 'rewards', label: '奖励', icon: '🎁', gem: 'gold' },
 ]
 
 function go(id) {
@@ -28,7 +29,7 @@ function go(id) {
     <div class="sidebar-brand">
       <div class="brand-icons">
         <HandDrawnIcon name="amaryllis" :size="34" />
-        <HandDrawnIcon name="jewelry" :size="32" />
+        <GemIcon color="blue" :size="32" />
       </div>
       <div>
         <div class="brand-title">努力可视化</div>
@@ -46,6 +47,7 @@ function go(id) {
       >
         <span class="nav-icon">{{ item.icon }}</span>
         <span class="nav-label">{{ item.label }}</span>
+        <GemIcon :color="item.gem" :size="16" :sparkle="active === item.id" />
       </button>
     </nav>
 
@@ -57,6 +59,7 @@ function go(id) {
       >
         <span class="nav-icon">⚙️</span>
         <span class="nav-label">系统设置</span>
+        <GemIcon color="lavender" :size="16" :sparkle="active === 'settings'" />
       </button>
     </div>
   </aside>
@@ -136,7 +139,7 @@ function go(id) {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 10px 12px;
   border-radius: 14px;
   color: var(--muted);
@@ -163,6 +166,12 @@ function go(id) {
   font-size: 18px;
   width: 24px;
   text-align: center;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  flex: 1;
+  min-width: 0;
 }
 
 .sidebar-overlay {

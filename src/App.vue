@@ -12,6 +12,7 @@ import HabitsPage from './views/HabitsPage.vue'
 import RewardsPage from './views/RewardsPage.vue'
 import DecoAnimation from './components/DecoAnimation.vue'
 import HandDrawnIcon from './components/HandDrawnIcon.vue'
+import GemIcon from './components/GemIcon.vue'
 
 const { resetAllData } = useGameStore()
 
@@ -66,12 +67,12 @@ function onReset() {
         <div class="topbar-title-wrap">
           <div class="topbar-icons">
             <HandDrawnIcon name="amaryllis" :size="26" />
-            <HandDrawnIcon name="jewelry" :size="24" />
+            <GemIcon color="blue" :size="24" />
           </div>
           <h1>{{ pageTitle }}</h1>
         </div>
         <div class="topbar-badge">
-          <HandDrawnIcon name="jewelry" :size="22" />
+          <GemIcon color="gold" :size="20" />
           <span>Lv UP</span>
         </div>
       </header>
