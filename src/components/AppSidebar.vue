@@ -28,8 +28,7 @@ function go(id) {
     <div class="sidebar-brand">
       <div class="brand-icons">
         <HandDrawnIcon name="amaryllis" :size="34" />
-        <HandDrawnIcon name="peony" :size="30" />
-        <HandDrawnIcon name="jewelry" :size="28" />
+        <HandDrawnIcon name="jewelry" :size="32" />
       </div>
       <div>
         <div class="brand-title">努力可视化</div>

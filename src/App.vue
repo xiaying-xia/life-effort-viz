@@ -66,13 +66,12 @@ function onReset() {
         <div class="topbar-title-wrap">
           <div class="topbar-icons">
             <HandDrawnIcon name="amaryllis" :size="26" />
-            <HandDrawnIcon name="peony" :size="22" />
-            <HandDrawnIcon name="jewelry" :size="20" />
+            <HandDrawnIcon name="jewelry" :size="24" />
           </div>
           <h1>{{ pageTitle }}</h1>
         </div>
         <div class="topbar-badge">
-          <HandDrawnIcon name="jewelry" :size="18" />
+          <HandDrawnIcon name="jewelry" :size="22" />
           <span>Lv UP</span>
         </div>
       </header>
