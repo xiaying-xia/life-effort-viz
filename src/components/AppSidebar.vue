@@ -29,7 +29,7 @@ function go(id) {
     <div class="sidebar-brand">
       <div class="brand-icons">
         <HandDrawnIcon name="amaryllis" :size="34" />
-        <GemIcon color="blue" :size="32" />
+        <GemIcon color="blue" :size="32" sparkle intense />
       </div>
       <div>
         <div class="brand-title">努力可视化</div>
@@ -39,7 +39,7 @@ function go(id) {
 
     <nav class="sidebar-nav">
       <button
-        v-for="item in menuItems"
+        v-for="(item, index) in menuItems"
         :key="item.id"
         class="nav-link"
         :class="{ active: active === item.id }"
@@ -47,7 +47,13 @@ function go(id) {
       >
         <span class="nav-icon">{{ item.icon }}</span>
         <span class="nav-label">{{ item.label }}</span>
-        <GemIcon :color="item.gem" :size="16" sparkle />
+        <GemIcon
+          :color="item.gem"
+          :size="18"
+          sparkle
+          intense
+          :phase="index"
+        />
       </button>
     </nav>
 
@@ -59,7 +65,7 @@ function go(id) {
       >
         <span class="nav-icon">⚙️</span>
         <span class="nav-label">系统设置</span>
-        <GemIcon color="lavender" :size="16" sparkle />
+        <GemIcon color="lavender" :size="18" sparkle intense :phase="6" />
       </button>
     </div>
   </aside>

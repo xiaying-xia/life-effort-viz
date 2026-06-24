@@ -10,9 +10,13 @@ const props = defineProps({
   },
   size: { type: [Number, String], default: 24 },
   sparkle: { type: Boolean, default: true },
+  intense: { type: Boolean, default: false },
+  phase: { type: Number, default: 0 },
 })
 
 const uid = useId().replace(/[^a-zA-Z0-9]/g, '')
+
+const animDelay = computed(() => `${props.phase * 0.22}s`)
 
 const palettes = {
   blue: { light: '#BAE6FD', mid: '#38BDF8', deep: '#0284C7', dark: '#0369A1' },
@@ -35,7 +39,8 @@ const glowFill = computed(() => 'url(#' + `gem-glow-${uid}` + ')')
 <template>
   <svg
     class="gem-icon"
-    :class="{ 'gem-sparkle': sparkle }"
+    :class="{ 'gem-sparkle': sparkle, 'gem-intense': intense }"
+    :style="sparkle ? { animationDelay: animDelay } : undefined"
     :width="size"
     :height="size"
     viewBox="0 0 64 64"
@@ -118,14 +123,40 @@ const glowFill = computed(() => 'url(#' + `gem-glow-${uid}` + ')')
   animation: gem-shimmer 3s ease-in-out infinite;
 }
 
+.gem-intense.gem-sparkle {
+  animation: gem-shimmer-intense 1.8s ease-in-out infinite;
+}
+
+.gem-intense.gem-sparkle .g-a {
+  animation: gem-glint-intense 1.1s ease-in-out infinite;
+}
+
+.gem-intense.gem-sparkle .g-b {
+  animation: gem-glint-intense 1.1s ease-in-out infinite 0.35s;
+}
+
+.gem-intense.gem-sparkle .g-c {
+  animation: gem-glint-intense 1s ease-in-out infinite 0.65s;
+}
+
 @keyframes gem-glint {
   0%, 100% { opacity: 0.15; transform: scale(0.7); }
   50% { opacity: 1; transform: scale(1.35); }
 }
 
+@keyframes gem-glint-intense {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
 @keyframes gem-shimmer {
   0%, 100% { filter: drop-shadow(0 1px 3px rgba(56, 189, 248, 0.3)); }
   50% { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 14px rgba(56, 189, 248, 0.5)); }
+}
+
+@keyframes gem-shimmer-intense {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5)) drop-shadow(0 2px 6px rgba(56, 189, 248, 0.45)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 20px rgba(147, 197, 253, 0.85)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
