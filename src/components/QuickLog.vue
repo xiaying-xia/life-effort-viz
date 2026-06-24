@@ -47,9 +47,9 @@ function submit() {
 .input {
   width: 100%;
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--surface2);
-  background: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: #fff;
   outline: none;
 }
 .input:focus {
@@ -62,16 +62,16 @@ function submit() {
 .select {
   flex: 1;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--surface2);
-  background: var(--surface2);
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: #fff;
 }
 .xp-input {
   width: 64px;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--surface2);
-  background: var(--surface2);
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: #fff;
   text-align: center;
 }
 </style>

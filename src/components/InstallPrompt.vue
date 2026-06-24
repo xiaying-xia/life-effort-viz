@@ -49,11 +49,12 @@ async function install() {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
-  border-color: rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(204, 251, 241, 0.55), rgba(167, 243, 208, 0.45));
+  border-color: rgba(45, 212, 191, 0.35);
 }
 .install-text strong {
   font-size: 14px;
+  color: var(--text-strong);
 }
 .install-text p {
   font-size: 12px;

@@ -1,13 +1,24 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { getLevelProgress } from '../utils/level.js'
-import { useGameStore } from '../composables/useGameStore.js'
 
 const props = defineProps({
   dimension: { type: Object, required: true },
 })
 
 const progress = computed(() => getLevelProgress(props.dimension.totalXp))
+
+const breakdown = computed(() => props.dimension.xpBreakdown || { habit: 0, goal: 0, task: 0, manual: 0 })
+
+const breakdownParts = computed(() => {
+  const b = breakdown.value
+  const parts = []
+  if (b.habit > 0) parts.push(`习惯 +${b.habit}`)
+  if (b.goal > 0) parts.push(`目标 +${b.goal}`)
+  if (b.task > 0) parts.push(`任务 +${b.task}`)
+  if (b.manual > 0) parts.push(`记录 +${b.manual}`)
+  return parts
+})
 </script>
 
 <template>
@@ -27,6 +38,9 @@ const progress = computed(() => getLevelProgress(props.dimension.totalXp))
           background: dimension.color,
         }"
       />
+    </div>
+    <div v-if="breakdownParts.length" class="dim-breakdown">
+      {{ breakdownParts.join(' · ') }}
     </div>
   </div>
 </template>
@@ -60,14 +74,21 @@ const progress = computed(() => getLevelProgress(props.dimension.totalXp))
   font-variant-numeric: tabular-nums;
 }
 .bar-track {
-  height: 10px;
+  height: 12px;
   background: var(--surface2);
   border-radius: 999px;
   overflow: hidden;
+  border: 1px solid var(--border);
 }
 .bar-fill {
   height: 100%;
   border-radius: 999px;
   transition: width 0.4s ease;
+}
+.dim-breakdown {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
 }
 </style>

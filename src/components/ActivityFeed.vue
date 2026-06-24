@@ -3,13 +3,14 @@ import { formatTime } from '../utils/level.js'
 
 defineProps({
   logs: { type: Array, default: () => [] },
+  maxItems: { type: Number, default: 20 },
 })
 </script>
 
 <template>
   <div class="feed">
     <div v-if="logs.length === 0" class="empty">还没有记录，完成第一个习惯吧 🎯</div>
-    <div v-for="log in logs" :key="log.id" class="feed-item">
+    <div v-for="log in logs.slice(0, maxItems)" :key="log.id" class="feed-item">
       <div class="feed-text">
         <span class="dim-tag">「{{ log.dimensionName }}」</span>
         <span class="xp">XP +{{ log.xp }}</span>
@@ -36,20 +37,21 @@ defineProps({
 }
 .feed-item {
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
-  border-left: 3px solid var(--accent);
+  border-radius: 14px;
+  background: var(--item-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
 }
 .feed-text {
   font-size: 14px;
   line-height: 1.45;
 }
 .dim-tag {
-  color: var(--accent2);
-  font-weight: 600;
+  color: var(--accent-deep);
+  font-weight: 700;
 }
 .xp {
-  color: var(--success);
+  color: #16a34a;
   font-weight: 700;
   font-size: 13px;
 }
