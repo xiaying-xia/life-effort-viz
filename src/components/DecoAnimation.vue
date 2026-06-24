@@ -1,28 +1,44 @@
 <script setup>
+import HandDrawnIcon from './HandDrawnIcon.vue'
+
 const decos = [
-  { icon: '✨', style: { left: '8%', top: '12%', animationDelay: '0s', animationDuration: '5s', fontSize: '18px' } },
-  { icon: '⭐', style: { left: '92%', top: '18%', animationDelay: '1.2s', animationDuration: '7s', fontSize: '16px' } },
-  { icon: '💗', style: { left: '85%', top: '55%', animationDelay: '2.4s', animationDuration: '6s', fontSize: '20px' } },
-  { icon: '♡', style: { left: '5%', top: '68%', animationDelay: '0.8s', animationDuration: '8s', fontSize: '22px' } },
-  { icon: '✦', style: { left: '72%', top: '8%', animationDelay: '3s', animationDuration: '5.5s', fontSize: '14px' } },
-  { icon: '💜', style: { left: '18%', top: '42%', animationDelay: '1.8s', animationDuration: '6.5s', fontSize: '16px' } },
-  { icon: '⭐', style: { left: '48%', top: '85%', animationDelay: '2s', animationDuration: '7.5s', fontSize: '15px' } },
-  { icon: '✨', style: { left: '35%', top: '22%', animationDelay: '3.5s', animationDuration: '5s', fontSize: '17px' } },
-  { icon: '♡', style: { left: '58%', top: '38%', animationDelay: '4s', animationDuration: '8s', fontSize: '19px' } },
-  { icon: '💫', style: { left: '78%', top: '78%', animationDelay: '1s', animationDuration: '6s', fontSize: '18px' } },
-  { icon: '💙', style: { left: '62%', top: '62%', animationDelay: '2.2s', animationDuration: '9s', fontSize: '14px' } },
-  { icon: '✦', style: { left: '28%', top: '78%', animationDelay: '0.5s', animationDuration: '7s', fontSize: '13px' } },
+  { name: 'amaryllis', style: { left: '6%', top: '10%', animationDelay: '0s', animationDuration: '6s', size: 36 } },
+  { name: 'peony', style: { left: '88%', top: '14%', animationDelay: '1.5s', animationDuration: '7s', size: 32, opacity: 0.4 } },
+  { name: 'jewelry', style: { left: '92%', top: '52%', animationDelay: '2.2s', animationDuration: '8s', size: 28 } },
+  { name: 'amaryllis', style: { left: '4%', top: '65%', animationDelay: '0.8s', animationDuration: '7.5s', size: 30, opacity: 0.38 } },
+  { name: 'peony', style: { left: '72%', top: '6%', animationDelay: '3s', animationDuration: '6.5s', size: 26, opacity: 0.32 } },
+  { name: 'jewelry', style: { left: '16%', top: '38%', animationDelay: '1.8s', animationDuration: '9s', size: 24, opacity: 0.3 } },
+  { name: 'peony', style: { left: '48%', top: '88%', animationDelay: '2s', animationDuration: '7s', size: 28, opacity: 0.35 } },
+  { name: 'amaryllis', style: { left: '34%', top: '18%', animationDelay: '3.5s', animationDuration: '8s', size: 22, opacity: 0.28 } },
+  { name: 'jewelry', style: { left: '58%', top: '72%', animationDelay: '1s', animationDuration: '6s', size: 30, opacity: 0.36 } },
 ]
 </script>
 
 <template>
   <div class="deco-layer" aria-hidden="true">
-    <span
+    <div class="corner corner-tl">
+      <HandDrawnIcon name="peony" :size="68" />
+    </div>
+    <div class="corner corner-tr">
+      <HandDrawnIcon name="jewelry" :size="48" />
+    </div>
+    <div class="corner corner-br">
+      <HandDrawnIcon name="amaryllis" :size="56" />
+    </div>
+    <div
       v-for="(d, i) in decos"
       :key="i"
       class="deco"
-      :style="d.style"
-    >{{ d.icon }}</span>
+      :style="{
+        left: d.style.left,
+        top: d.style.top,
+        animationDelay: d.style.animationDelay,
+        animationDuration: d.style.animationDuration,
+        opacity: d.style.opacity,
+      }"
+    >
+      <HandDrawnIcon :name="d.name" :size="d.style.size" />
+    </div>
   </div>
 </template>
 
@@ -35,28 +51,66 @@ const decos = [
   overflow: hidden;
 }
 
+.corner {
+  position: absolute;
+  opacity: 0.28;
+}
+
+.corner-tl {
+  top: 52px;
+  left: 232px;
+  transform: rotate(-10deg);
+}
+
+.corner-tr {
+  top: 80px;
+  right: 48px;
+  transform: rotate(8deg);
+  opacity: 0.24;
+}
+
+.corner-br {
+  bottom: 28px;
+  right: 36px;
+  transform: rotate(14deg) scaleX(-1);
+}
+
 .deco {
   position: absolute;
-  opacity: 0.45;
-  animation: float-deco 6s ease-in-out infinite;
-  filter: drop-shadow(0 0 6px rgba(197, 171, 211, 0.45));
+  animation: float-deco 7s ease-in-out infinite;
 }
 
 @keyframes float-deco {
   0%, 100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-    opacity: 0.35;
+    transform: translateY(0) rotate(-4deg);
   }
   50% {
-    transform: translateY(-14px) rotate(8deg) scale(1.08);
-    opacity: 0.65;
+    transform: translateY(-14px) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .corner-tl {
+    left: auto;
+    right: 16px;
+    top: 78px;
+    opacity: 0.2;
+  }
+  .corner-tr {
+    top: auto;
+    bottom: 100px;
+    left: 12px;
+    right: auto;
+    opacity: 0.18;
+  }
+  .corner-br {
+    opacity: 0.2;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .deco {
     animation: none;
-    opacity: 0.25;
   }
 }
 </style>

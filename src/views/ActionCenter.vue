@@ -4,6 +4,7 @@ import { useGameStore } from '../composables/useGameStore.js'
 import DimensionProgress from '../components/DimensionProgress.vue'
 import HabitList from '../components/HabitList.vue'
 import ActivityFeed from '../components/ActivityFeed.vue'
+import HandDrawnIcon from '../components/HandDrawnIcon.vue'
 
 const emit = defineEmits(['toast', 'navigate'])
 
@@ -104,7 +105,10 @@ function completeGoalQuick(id) {
 <template>
   <div class="action-center">
     <section class="card upgrade-panel">
-      <div class="card-title">📈 升级进度</div>
+      <div class="card-title">
+        <HandDrawnIcon name="amaryllis" :size="22" />
+        <span>升级进度</span>
+      </div>
       <p class="panel-hint">习惯打卡、目标完成、任务完成获得的 XP 都会累计到对应维度</p>
       <DimensionProgress
         v-for="dim in dimensionsWithXp"

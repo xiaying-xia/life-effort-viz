@@ -11,6 +11,7 @@ import TasksPage from './views/TasksPage.vue'
 import HabitsPage from './views/HabitsPage.vue'
 import RewardsPage from './views/RewardsPage.vue'
 import DecoAnimation from './components/DecoAnimation.vue'
+import HandDrawnIcon from './components/HandDrawnIcon.vue'
 
 const { resetAllData } = useGameStore()
 
@@ -62,10 +63,18 @@ function onReset() {
     <div class="main-wrap">
       <header class="topbar">
         <button class="menu-btn" @click="mobileMenuOpen = true">☰</button>
-        <div>
+        <div class="topbar-title-wrap">
+          <div class="topbar-icons">
+            <HandDrawnIcon name="amaryllis" :size="26" />
+            <HandDrawnIcon name="peony" :size="22" />
+            <HandDrawnIcon name="jewelry" :size="20" />
+          </div>
           <h1>{{ pageTitle }}</h1>
         </div>
-        <div class="topbar-badge">✨ Lv UP</div>
+        <div class="topbar-badge">
+          <HandDrawnIcon name="jewelry" :size="18" />
+          <span>Lv UP</span>
+        </div>
       </header>
 
       <main class="content">
@@ -121,6 +130,18 @@ function onReset() {
   z-index: 1;
 }
 
+.main-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.12;
+  background: radial-gradient(circle at 70% 30%, #F04A3A 0%, transparent 65%);
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -145,6 +166,20 @@ function onReset() {
   border-radius: 12px;
 }
 
+.topbar-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.topbar-icons {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
 .topbar h1 {
   font-size: 18px;
   font-weight: 800;
@@ -153,6 +188,9 @@ function onReset() {
 
 .topbar-badge {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 11px;
   font-weight: 800;
   padding: 6px 14px;

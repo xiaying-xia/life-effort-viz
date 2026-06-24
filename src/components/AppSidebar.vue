@@ -1,4 +1,6 @@
 <script setup>
+import HandDrawnIcon from './HandDrawnIcon.vue'
+
 defineProps({
   active: { type: String, default: 'action' },
   mobileOpen: { type: Boolean, default: false },
@@ -24,10 +26,14 @@ function go(id) {
 <template>
   <aside class="sidebar" :class="{ open: mobileOpen }">
     <div class="sidebar-brand">
-      <span class="brand-icon">✨</span>
+      <div class="brand-icons">
+        <HandDrawnIcon name="amaryllis" :size="34" />
+        <HandDrawnIcon name="peony" :size="30" />
+        <HandDrawnIcon name="jewelry" :size="28" />
+      </div>
       <div>
         <div class="brand-title">努力可视化</div>
-        <div class="brand-sub">今天也要加油鸭 💗</div>
+        <div class="brand-sub">今天也要发光啊</div>
       </div>
     </div>
 
@@ -87,10 +93,16 @@ function go(id) {
   border-bottom: 2px dashed var(--border);
 }
 
-.brand-icon {
-  font-size: 32px;
-  filter: drop-shadow(0 2px 4px rgba(252, 167, 196, 0.4));
-  animation: twinkle 4s ease-in-out infinite;
+.brand-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgba(255, 250, 253, 0.9);
+  box-shadow: 0 2px 8px rgba(197, 171, 211, 0.2);
 }
 
 .brand-title {
