@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbcfe8"/>
-      <stop offset="50%" stop-color="#f9a8d4"/>
-      <stop offset="100%" stop-color="#e879f9"/>
+      <stop offset="0%" stop-color="#9ACBFB"/>
+      <stop offset="50%" stop-color="#FCA7C4"/>
+      <stop offset="100%" stop-color="#C5ABD3"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="120" fill="url(#g)"/>
-  <text x="256" y="290" text-anchor="middle" font-size="200">🌸</text>
+  <text x="256" y="290" text-anchor="middle" font-size="200">✨</text>
 </svg>
