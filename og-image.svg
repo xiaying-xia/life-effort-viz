@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="35%" stop-color="#fde8f0"/>
+      <stop offset="70%" stop-color="#e8f4fe"/>
+      <stop offset="100%" stop-color="#fdf2f8"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9ACBFB"/>
+      <stop offset="50%" stop-color="#FCA7C4"/>
+      <stop offset="100%" stop-color="#C5ABD3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="150" cy="120" r="90" fill="#9ACBFB" opacity="0.25"/>
+  <circle cx="1050" cy="80" r="110" fill="#FCA7C4" opacity="0.22"/>
+  <circle cx="980" cy="520" r="130" fill="#C5ABD3" opacity="0.2"/>
+  <polygon points="920,180 960,240 900,240" fill="url(#gem)" opacity="0.85"/>
+  <polygon points="240,420 280,480 200,480" fill="url(#gem)" opacity="0.7"/>
+  <text x="80" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="72" font-weight="800" fill="#5a4d6a">ºª›ïÆ</text>
+  <text x="80" y="290" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="36" fill="#6b6280">Šå8ª›ØÏŒ< · môº RPG</text>
+  <text x="80" y="380" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" fill="#9a8fad">`ïSa · îG§ · ÑQV± · MèŒ</text>
+  <g font-size="42">
+    <text x="80" y="470">=ª</text><text x="140" y="470">=Ú</text><text x="200" y="470">=°</text>
+    <text x="260" y="470">></text><text x="320" y="470">=¼</text><text x="380" y="470"><¨</text>
+  </g>
+  <rect x="80" y="510" width="280" height="56" rx="28" fill="url(#gem)"/>
+  <text x="220" y="548" text-anchor="middle" font-family="PingFang SC, sans-serif" font-size="24" font-weight="700" fill="#fff">Ê)_ÑIJ</text>
+</svg>
